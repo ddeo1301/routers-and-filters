@@ -1,6 +1,5 @@
 const path = require('path');
 const express = require('express');
-// body parser is a middleware component that is used to extract data from the body of an HTTP request.
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -10,6 +9,7 @@ const shopRoutes = require('./routes/shop');
 const contact = require('./routes/contact');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'public')))
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
